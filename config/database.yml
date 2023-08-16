@@ -23,7 +23,12 @@ default: &default
 
 development:
   <<: *default
-  database: blog_app_development
+  adapter: postgresql
+  database: blog_app
+  host: localhost
+  username: postgres
+  password: Managua2023
+  port: 5432
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
