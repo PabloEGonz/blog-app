@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-
   it 'Long title should be invalid' do
     author = User.new(name: 'Rhaenyra', photo: 'url', bio: 'Queen')
     subject = Post.new(author:, title: 'Why I am the rightful heir', text: 'My father!')
