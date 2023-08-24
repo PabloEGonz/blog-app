@@ -1,8 +1,15 @@
-<div>
-  <h5> <%= link_to "Post #{i + 1}", user_post_path(@user, post) %></h5>
-  <p><%= post.title%></p>
-  <p><%= post.text%></p>
-  <span>Comments <%= post.comments_counter%></span>
-  <span>Likes <%= post.likes_counter%></span>
+<div class='card mx-auto my-1' style='max-width: 440px;'>
+  <div class='card-body'>
+    <h5 class='card-title'> <%= link_to "Post #{i + 1}", user_post_path(@user, post) %></h5>
+    <p class='card-title'><%= post.title%></p>
+    <p class='card-text'><%= post.text%></p>
+    <span>Comments <%= post.comments_counter%></span>
+    <span>Likes <%= post.likes_counter%></span>
+  </div>
+  <ul class='list-group list-group-flush'>
+    <% post.comments.each do |comment| %>
+      <%= render partial: 'comment', locals: { comment: comment } %>
+    <% end %>
+  </ul>
 </div>
 <div>
