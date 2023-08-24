@@ -1,16 +1,18 @@
-<div>
-  <div>
-    <h5>Post by <%= @post.author.name%> </h5>
-    <span>Comments <%= @post.comments_counter%></span>
-    <span>Likes <%= @post.likes_counter%></span>
+<div class='card mx-auto my-1' style='max-width: 440px;'>
+  <div class='post-data'>
+    <span class='card-title'>Post by <%= @post.author.name%> </span>
+    <div class='ml-1'>
+      <small>Comments <%= @post.comments_counter%></small>
+      <small>Likes <%= @post.likes_counter%></small>
+    </div>
   </div>
-  <div>
-    <p><%= @post.title%></p>
-    <p><%= @post.text%></p>
+  <div class='card-body'>
+    <h5 class='card-title'><%= @post.title%></h5>
+    <p class='card-text'><%= @post.text%></p>
   </div>
+  <ul class='list-group list-group-flush'>
     <% @post.comments.each do |comment| %>
-  <div>
-    <%= render partial: 'comment', locals: { comment: comment } %>
-  </div>
-  <% end %>
+      <%= render partial: 'comment', locals: { comment: comment } %>
+    <% end %>
+  </ul>
 </div>
