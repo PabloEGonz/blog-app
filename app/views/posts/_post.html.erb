@@ -1,0 +1,8 @@
+<div>
+  <h5> <%= link_to "Post #{i + 1}", user_post_path(@user, post) %></h5>
+  <p><%= post.title%></p>
+  <p><%= post.text%></p>
+  <span>Comments <%= post.comments_counter%></span>
+  <span>Likes <%= post.likes_counter%></span>
+</div>
+<div>
