@@ -2,8 +2,8 @@
   <div class='post-data'>
     <span class='card-title'>Post by <%= @post.author.name%> </span>
     <div class='ml-1'>
-      <small>Comments <%= @post.comments_counter%></small>
-      <small>Likes <%= @post.likes_counter%></small>
+      <small>Comments <%= @post.comments.count%></small>
+      <small>Likes <%= @post.likes.count%></small>
     </div>
   </div>
   <div class='card-body'>
