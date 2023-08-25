@@ -1,16 +1,22 @@
-<img src="" alt="profile pic" />
-<h3>User name</h3>
-<p>Number of posts</p>
-<div>
-  <h5>Bio</h5>
-  <p>this is a bio</p>
-</div>
-<div>
-  <h5>Post #1</h5>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora delectus 
-    porro officiis odio soluta totam dolor expedita iure quaerat, rem sapiente 
-    tenetur ullam qui molestias nulla illum. Numquam, eos deserunt.</p>
-  <span>Comments x</span>
-  <span>Likes y</span>
-  <button>See all posts</button>
+<div class='profile-page'>
+  <%= render partial: 'shared/user', locals: { user: @user } %>
+  <div class='card mx-auto my-3' style='max-width: 440px;'>
+    <div class='card-body'>
+      <h5 class='card-title'>Bio</h5>
+      <h6 class='card-subtitle mb-2 text-body-secondary'><%=@user.bio%></h6>
+    </div>
+  </div>
+  <div>
+    <% @user.recent_posts.each_with_index do |post , i| %>
+      <div class='card mx-auto my-1' style='max-width: 440px;'>
+        <div class='card-body'>
+          <h5 class='card-title'>Post #<%= i + 1%></h5>
+          <h6 class='card-subtitle mb-2 text-body-secondary'><%= post.title%></h6>
+          <span>Comments <%= post.comments.count%></span>
+          <span>Likes <%= post.likes.count%></span>
+        </div>
+      </div>
+    <% end %>
+    <%= link_to 'See all posts',  user_posts_path(@user), class:'btn btn-primary' %>
+  </div>
 </div>

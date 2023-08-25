@@ -1,14 +1,18 @@
-<div>
-  <div>
-    <h5>Post #1 by username</h5>
-    <span>Comments x</span>
-    <span>Likes y</span></div>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora delectus 
-    porro officiis odio soluta totam dolor expedita iure quaerat, rem sapiente 
-    tenetur ullam qui molestias nulla illum. Numquam, eos deserunt.</p>
-</div>
-<div>
-  <p>Username: this is a comment</p>
-  <p>Username: this is a comment</p>
-  <p>Username: this is a comment</p>
+<div class='card mx-auto my-1' style='max-width: 440px;'>
+  <div class='post-data'>
+    <span class='card-title'>Post by <%= @post.author.name%> </span>
+    <div class='ml-1'>
+      <small>Comments <%= @post.comments.count%></small>
+      <small>Likes <%= @post.likes.count%></small>
+    </div>
+  </div>
+  <div class='card-body'>
+    <h5 class='card-title'><%= @post.title%></h5>
+    <p class='card-text'><%= @post.text%></p>
+  </div>
+  <ul class='list-group list-group-flush'>
+    <% @post.comments.each do |comment| %>
+      <%= render partial: 'comment', locals: { comment: comment } %>
+    <% end %>
+  </ul>
 </div>
