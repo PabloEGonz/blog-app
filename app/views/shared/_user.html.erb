@@ -6,7 +6,7 @@
     <div class='col-md-8'>
       <div class='card-body'>
         <h3><%= link_to user.name, user %></h3>
-        <p class='card-text'>Number of posts: <%= user.posts_counter %></p>
+        <p class='card-text'>Number of posts: <%= user.posts.count %></p>
       </div>
     </div>
   </div>
