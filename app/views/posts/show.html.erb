@@ -15,4 +15,5 @@
       <%= render partial: 'comment', locals: { comment: comment } %>
     <% end %>
   </ul>
+  <%= render partial: '/shared/comment_form', locals: { post: @post } %>
 </div>
