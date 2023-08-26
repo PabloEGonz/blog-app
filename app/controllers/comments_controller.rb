@@ -10,8 +10,9 @@ class CommentsController < ApplicationController
     end
     redirect_to post_url(post)
   end
-  
-  private 
+
+  private
+
   def comment_params
     params.require(:comment).permit(:text)
   end
