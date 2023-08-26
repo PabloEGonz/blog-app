@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 
   def create
     new_post = Post.new(author: current_user)
-    new_post.assign_attributes(params.require(:post).permit(:title, :text))
+    new_post.assign_attributes(post_params)
     if new_post.save
       flash[:success] = 'The post was created!'
       redirect_to user_posts_url(current_user)
@@ -25,5 +25,10 @@ class PostsController < ApplicationController
       flash.now[:error] = 'Could not create post, try again'
       render :new, status: :unprocessable_entity
     end
+  end
+
+  private 
+  def post_params
+    params.require(:post).permit(:title, :text)
   end
 end
