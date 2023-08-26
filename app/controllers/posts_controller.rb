@@ -12,6 +12,7 @@ class PostsController < ApplicationController
 
   def new
     @new_post = Post.new
+    render 'new'
   end
 
   def create
@@ -22,7 +23,7 @@ class PostsController < ApplicationController
       redirect_to user_posts_url(current_user)
     else
       flash.now[:error] = 'Could not create post, try again'
-      render 'new'
+      render :new, status: :unprocessable_entity    
     end
   end
 end
