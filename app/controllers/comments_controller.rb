@@ -5,10 +5,9 @@ class CommentsController < ApplicationController
     new_comment.assign_attributes(params.require(:comment).permit(:text))
     if new_comment.save
       flash[:success] = 'The comment was added!'
-      redirect_to post_url(post)
     else
       flash[:error] = 'Could not post comment'
-      redirect_to post_url(post)
     end
+    redirect_to post_url(post)
   end
 end
