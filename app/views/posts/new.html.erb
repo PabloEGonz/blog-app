@@ -1,0 +1,18 @@
+<div class='my-5 pt-5'>
+  <h2 class='text-center'>Create new post</h2>
+  <%= form_with model: @new_post, url: posts_path, method: :post, local: true, scope: :post do |f| %>
+    <div class="mb-3 row">
+      <%= f.label :title, class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+    </div>
+    <div class="mb-3">
+      <%= f.label :text, class: "form-label" %>
+      <%= f.text_area :text, class: "form-control" %>
+    </div>
+    <div class="text-center">
+      <%= f.submit 'Create post', class:"btn btn-primary mb-3" %>
+    </div>
+  <% end %>
+</div>

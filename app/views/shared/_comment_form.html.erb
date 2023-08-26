@@ -1,0 +1,12 @@
+<div class="my-2">
+  <%= form_with model: Comment.new, url: post_comments_path(@post), method: :post, local: true, scope: :comment do |f| %>
+    <div class="px-3 row">
+      <div class="col-sm-10">
+        <%= f.text_field :text, class: "form-control", placeholder: 'Write a comment:' %>
+      </div>
+      <div class="col-sm-2">
+        <%= f.submit 'Post', class:"btn btn-primary mb-3" %>
+      </div>
+    </div>
+  <% end %>
+</div>

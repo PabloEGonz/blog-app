@@ -3,3 +3,7 @@
     <%= render partial: 'shared/user', locals: { user: user } %>
   <% end %>
 </div>
+<div>
+  <div class='text-center'>
+    <%= link_to 'Create new post',  new_post_path, class:'btn btn-primary' %>
+  </div>
