@@ -23,7 +23,7 @@ class PostsController < ApplicationController
       redirect_to user_posts_url(current_user)
     else
       flash.now[:error] = 'Could not create post, try again'
-      render :new, status: :unprocessable_entity    
+      render :new, status: :unprocessable_entity
     end
   end
 end
