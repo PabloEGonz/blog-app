@@ -8,14 +8,9 @@
   </div>
   <div>
     <% @user.recent_posts.each_with_index do |post , i| %>
-      <div class='card mx-auto my-1' style='max-width: 440px;'>
-        <div class='card-body'>
-          <h5 class='card-title'>Post #<%= i + 1%></h5>
-          <h6 class='card-subtitle mb-2 text-body-secondary'><%= post.title%></h6>
-          <span>Comments <%= post.comments.count%></span>
-          <span>Likes <%= post.likes.count%></span>
-        </div>
-      </div>
+      <%= link_to post_path(post), class: "text-decoration-none" do %>
+        <%= render partial: 'shared/post_card', locals: { post: post, i: i } %>
+      <% end %>
     <% end %>
     <%= link_to 'See all posts',  user_posts_path(@user), class:'btn btn-primary' %>
   </div>
