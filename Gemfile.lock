@@ -257,7 +257,6 @@ DEPENDENCIES
   rails (~> 7.0.7)
   rspec-rails
   rubocop (>= 1.0, < 2.0)
-  selenium-webdriver
   sprockets-rails
   stimulus-rails
   turbo-rails
