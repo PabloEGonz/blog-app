@@ -5,7 +5,7 @@ RSpec.describe Post, type: :system do
     it 'I can see the profile picture for each user.' do
       user = User.includes(:posts).first
       visit user_posts_path(user.posts.first.author_id)
-      expect(page).to have_xpath("//img[@src='https://robohash.org/accusantiumeaquea.png?size=300x300&set=set1']")
+      expect(page).to have_xpath("//img[@src='https://th.bing.com/th/id/OIP._VGFb07N31_kEVwva8aQQAHaKh?pid=ImgDet&rs=1']")
     end
 
     it 'I can see the users username.' do
@@ -33,10 +33,11 @@ RSpec.describe Post, type: :system do
     end
 
     it 'I can see the first comments on a post.' do
-      user = User.includes(:posts, posts: %i[author comments]).first
-      visit user_posts_path(user.posts.first.author_id)
+      user = User.first
       post = user.posts.first
       comment = post.comments.last
+      visit user_posts_path(user)
+
       expect(page).to have_content(comment.text)
     end
 
@@ -59,10 +60,10 @@ RSpec.describe Post, type: :system do
     end
 
     it 'When I click on a post, it redirects me to that posts show page.' do
-      user = User.includes(:posts).first
-      visit user_posts_path(user.posts.first.author_id)
-      click_link user.posts.first.title
-      expect(page).to have_current_path(user_post_path(user.posts.first.author_id, user.posts.first.id))
+      user = User.first
+      visit user_posts_path(user)
+      click_on 'Post 3'
+      expect(page).to have_current_path(post_path(user.posts.last))
     end
   end
 end

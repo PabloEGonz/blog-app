@@ -11,7 +11,7 @@ RSpec.describe 'User', type: :system do
 
     it 'I can see the profile picture for each user.' do
       visit users_path
-      expect(page).to have_xpath("//img[@src='https://robohash.org/accusantiumeaquea.png?size=300x300&set=set1']")
+      expect(page).to have_xpath("//img[@src='https://th.bing.com/th/id/OIP._VGFb07N31_kEVwva8aQQAHaKh?pid=ImgDet&rs=1']")
     end
 
     it 'I can see the number of posts for each user has written.' do
