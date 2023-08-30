@@ -27,7 +27,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def destroy 
+  def destroy
     post = Post.find_by(id: params[:id])
     if post.destroy
       flash[:success] = 'The post was deleted'
@@ -37,6 +37,7 @@ class PostsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
   private
 
   def post_params
