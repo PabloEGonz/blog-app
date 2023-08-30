@@ -3,13 +3,13 @@
     <div class="display-6"> Welcome <%= current_user.email %>! </div>
     <div class="row g-3 mt-4">
       <div class="col-md-10 text-center my-5">
-        <%= button_to 'Create new post',  new_post_path, class:'btn btn-primary' %>
+        <%= link_to 'Create new post',  new_post_path, class:'btn btn-primary' %>
       </div>
       <div class="col-md-4 mt-4">
         <%= button_to "Sign out", destroy_user_session_path, method: :delete, class:'btn btn-danger' %>
       </div>
       <div class="col-md-4 mt-4">
-        <%= button_to "Update password", edit_user_registration_path, class:'btn btn-warning' %>
+        <%= link_to "Update account info", edit_user_registration_path, class:'btn btn-secondary' %>
       </div>
     </div>
   <% else %>
