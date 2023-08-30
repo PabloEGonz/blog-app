@@ -7,4 +7,5 @@ resources :posts, only: [:new, :create, :show] do
   resources :comments, only: [:new, :create]
   resources :likes, only: [ :create]
 end
+root "home#index"
 end
