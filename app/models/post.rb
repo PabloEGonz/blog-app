@@ -9,11 +9,11 @@ class Post < ApplicationRecord
 
   after_save :update_posts_counter
   before_destroy :decremet_post_counter
-  
-  def as_json(_options={})
-    { :title => self.title, 
-    :text => self.text, 
-  :id => self.id }
+
+  def as_json(_options = {})
+    { title:,
+      text:,
+      id: }
   end
 
   def recent_comments
