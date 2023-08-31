@@ -1,1 +1,11 @@
-<li class='list-group-item'><%=comment.user.name %>: <%= comment.text%></li>
+<div class='list-group-item list-unstyled d-flex justify-content-between'>
+  <li><%=comment.user.name %>: <%= comment.text%></li>
+  <% if (can? :destroy, comment) || (comment.user.id == current_user.id) %>
+    <div class="dropstart">
+      <%= render partial: '/shared/three_dots' %>
+      <div class="dropdown-menu">
+        <%= button_to "Delete comment", comment_path(comment), method: :delete, class:'btn btn-sm btn-outline-danger' %>
+      </div>
+    </div>
+  <% end%>
+</div>

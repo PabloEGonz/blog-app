@@ -1,9 +1,17 @@
 <div class='card mx-auto my-1' style='max-width: 440px;'>
   <div class='post-data'>
     <span class='card-title'>Post by <%= @post.author.name%> </span>
-    <div class='ml-1'>
-      <small>Comments <%= @post.comments_counter%></small>
-      <small>Likes <%= @post.likes_counter%></small>
+    <div class='ml-0 d-flex justify-content-between align-center'>
+      <small class="mx-1">Comments <%= @post.comments_counter%></small>
+      <small class="mx-1">Likes <%= @post.likes_counter%></small>
+      <% if (can? :destroy, @post) || (@post.author.id == current_user.id) %>
+        <div class="dropstart mx-1">
+          <%= render partial: '/shared/three_dots' %>
+          <div class="dropdown-menu">
+            <%= button_to "Delete post", post_path(@post), method: :delete, class:'btn btn-sm btn-outline-danger' %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class='card-body'>
