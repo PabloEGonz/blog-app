@@ -12,6 +12,8 @@ gem 'devise'
 
 gem 'cancancan'
 
+gem 'rswag'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
@@ -60,6 +62,10 @@ group :development, :test do
   gem 'capybara'
 
   gem 'webdrivers'
+
+  gem 'rswag'
+
+  gem 'rswag-specs'
 end
 
 # group :development, :test do

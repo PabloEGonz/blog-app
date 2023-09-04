@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # mount Rswag::Ui::Engine => '/api-docs'
+
+  # mount Rswag::Api::Engine => '/api-docs-api'
   devise_for :users
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index]  
@@ -22,5 +25,4 @@ root "home#index"
       end
     end
   end
-
 end
